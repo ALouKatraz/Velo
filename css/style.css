@@ -30,13 +30,15 @@ Fonts
 }
 
 /****Fin Fonts ******/
+/*****HTML****/
 html{
-    scroll-behavior: smooth;
+    scroll-behavior: smooth;/*ajoute un effet sur le scroll au clique*/
 }
+/*****HTML*****/
 /************HEADER************/
 header{
     height: 100vh ; /*Toute la hauteur de la page*/
-    background: url("../img/fond.jpg") bottom right; /*fixed; ?*/
+    background: url("../img/fond.jpg") bottom right fixed; 
     background-size: cover; /* J'occupe tout l'espace */
     display: flex; /* le contenu devient flexible*/
     justify-content: center; /*répartition sur la largeur*/
@@ -47,6 +49,8 @@ header nav{
     position: fixed;/*position de la nav*/
     top:50%;
     left: 5%;
+    transform: translateY(-50%);/*Permet de remonter de 50% de la taille de l'élément
+    pour le centrer parfaitement sur la hauteur*/
 }
 header nav ul{
     list-style: none;/**/
@@ -77,51 +81,70 @@ header div{
     justify-content: center; /*répartition sur la largeur*/
     align-items: center;/*répartition sur la hauteur*/
 }
-header h1{
+header div h1{
     color: white; /*couleur du txt*/
     text-align: center;/*aligement du txt*/
     font-family: "Bran";
     font-size: 40px;/*la taille de la font*/
     line-height: 46px;/* hauteur de l'interligne*/
 }
-header h1::first-letter{
+header div h1::first-letter{
     text-transform: uppercase;
 }
 /**************MAIN****************/
-/**style sections **/
 main{
     display: flex;
-    justify-content: right;
+    justify-content: flex-end;/*droite posible mais ne fonctionne pas sur l'ensemble des nav*/
     background: #333;
 }
-section{
+main section{
     width: 70%;
-    padding: 100px 0;
+    padding: 100px 0; /*padding sur la section pas sur le main - éviter que toutes les sections soient impactées*/
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-wrap: wrap;
 }
 
-section div{
+main section>div{
     overflow: hidden;
+    position: relative;/* permet à la div enfant de dépendre de son parent*/
+    cursor: pointer;
+    margin: 20px;
 }
-
-section div .pho{
+main section div{
     width: 200px;
     height: 200px;
     border-radius: 50%;
-    margin: 50px;
 }
 
-section div .pho:hover{
-    transform: scale(1.5);
-    transition: 1s;
+main section div .pho{
+    width: 100%; /*Fera toujours la taille de la div*/
+    opacity: 0.7;/* opacité sur une image*/
+    transition: 0.5s;
+}
+main section>div>.rond{
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(255, 255, 255,0.5);
+    transform: scale(0.8);/*Permet la réduction par le centre*/
+    transition: 0.5s;/*transition se met sur l'élément qui s'anime*/
 }
 
+main section>div:hover .rond{ /*hover sur le parent pour atteindre l'enfant*/
+    transform: scale(0); /*va créer une résudtion*/
+}
+main section>div:hover .pho{
+    transform: scale(1.2);
+}
+/************FIN DU MAIN*************/
 /**************FOOTER****************/
 footer{
-    height: 75px;
+    height: 300px;
+    background: #999;
     display: flex;
     justify-content: center;
     align-items: center;
+    font-family: "Bran";
+    color: white;
+    font-size: 20px;
 }
