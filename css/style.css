@@ -3,7 +3,7 @@
     padding: 0; 
 }
 /***************************
-Mes fonts
+Fonts
 *************************/
 @font-face {
     font-family: 'Fut';
@@ -29,56 +29,63 @@ Mes fonts
     font-display: swap;
 }
 
-/****Fin Fints ******/
+/****Fin Fonts ******/
 html{
     scroll-behavior: smooth;
 }
 /************HEADER************/
 header{
-    height: 100vh ;
-    background: url(../img/fond.jpg) center bottom fixed;
-    background-size: cover;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    height: 100vh ; /*Toute la hauteur de la page*/
+    background: url("../img/fond.jpg") bottom right; /*fixed; ?*/
+    background-size: cover; /* J'occupe tout l'espace */
+    display: flex; /* le contenu devient flexible*/
+    justify-content: center; /*répartition sur la largeur*/
+    align-items: center;/*répartition sur la hauteur*/
 }
 header nav{
-    position: fixed;
+    /*Pas besoin de hauteur et largeur, elle va faire la position de ses enfants*/
+    position: fixed;/*position de la nav*/
     top:50%;
-    left: 10%;
-    box-shadow: 10px 10px;
+    left: 5%;
 }
 header nav ul{
-    list-style: none;
+    list-style: none;/**/
 }
 header nav ul li{
-    margin : 0 20px;
+    /*margin : 0 20px;*/
+    padding: 10px 0; /**/
+    text-shadow: 2px 2px 6px black; /*Valeur des x, valeur des y, flou et couleur*/
 }
-li:first-of-type{
-    border-bottom: 2px solid white;
+header nav ul li:first-of-type{
+    border-bottom: 3px solid white;/* épaisseur style couleur*/
 }
 header nav ul li a{
-    text-decoration:none;
-    color: white;
+    text-decoration:none;/*supprime le soulignement*/
+    text-transform: uppercase;/*txt en majuscule*/
+    color: white;/*couleur du txt*/
+    font-size: 30px;/*taille du txt*/
+    font-weight:bold;/*epaisseur du txt*/
     font-family: "Fut";
-    font-weight:bold;
-    font-size: larger;
-    text-transform: uppercase;
     margin-top: 20px ;
 }
 header div{
-    width: 300px;
-    height: 300px;
-    background: black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
+    width: 250px; /*largeur de la div*/
+    height: 250px;/* hauteur de la div*/
+    background: #333; /* couleur*/
+    border-radius: 50%; /* arrondir les angles*/
+    display: flex; /* le contenu devient flexible*/
+    justify-content: center; /*répartition sur la largeur*/
+    align-items: center;/*répartition sur la hauteur*/
 }
-header div h1{
+header h1{
+    color: white; /*couleur du txt*/
+    text-align: center;/*aligement du txt*/
     font-family: "Bran";
-    text-align: center;
-    color: white;
+    font-size: 40px;/*la taille de la font*/
+    line-height: 46px;/* hauteur de l'interligne*/
+}
+header h1::first-letter{
+    text-transform: uppercase;
 }
 /**************MAIN****************/
 /**style sections **/
@@ -95,11 +102,20 @@ section{
     align-items: center;
 }
 
+section div{
+    overflow: hidden;
+}
+
 section div .pho{
     width: 200px;
     height: 200px;
     border-radius: 50%;
     margin: 50px;
+}
+
+section div .pho:hover{
+    transform: scale(1.5);
+    transition: 1s;
 }
 
 /**************FOOTER****************/
